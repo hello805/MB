@@ -1,0 +1,136 @@
+{
+	"status": 0,
+	"msg": "ok",
+	"data": [
+
+		{
+			"name": "网站概括",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "系统设置",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "用户管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "主播管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "代理管理",
+			"icon": "",
+			"url": "",
+			"children": 
+			[{			
+			"name": "代理商",
+			"icon": "",
+			"url": "./pages/agency/agent.html"
+			},
+			{			
+			"name": "推广员",
+			"icon": "",
+			"url": "./pages/agency/extensionAgent.html"
+			},
+			
+			{			
+			"name": "客户",
+			"icon": "",
+			"url": "./pages/agency/client.html"
+			},
+			
+			{			
+			"name": "充值结算",
+			"icon": "",
+			"url": "./dynamic/recharge.html"
+			},
+			
+			{			
+			"name": "收益结算",
+			"icon": "",
+			"url": "./dynamic/benefit.html"
+			}
+			]
+		},
+		{
+			"name": "直播管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "视频管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "财务管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "家族管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "商城管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "红包管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "守护管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "等级管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "分销管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "内容管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "消息管理",
+			"icon": "",
+			"url": ""
+		},
+		{
+			"name": "扩展管理",
+			"icon": "",
+			"url": ""
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	]
+}

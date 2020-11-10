@@ -1,0 +1,265 @@
+{
+	"status": 0,
+	"msg": "ok",
+	"data":
+	[
+		{
+		"name": "网站概括",
+		"icon": "",
+		"url": ""
+		
+	},{	
+		"name": "系统设置",
+		"icon": "",
+		"url": ""
+	},{
+		"name": "用户管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[{
+			"name": "轮播图列表",
+			"icon": "",
+			"url": "./pages/rotation/list.html"
+		}]
+	},{
+		"name": "主播管理",
+		"icon": "",
+		"url": "",
+		"children": [{
+			"id": 10,
+			"name": "全部商品列表",
+			"icon": "",
+			"url": "./pages/goods/list.html"
+		},{
+			"id": 11,
+			"name": "设置天天特价专区",
+			"icon": "",
+			"url": "./pages/goods/list2.html"
+		},{
+			"id": 12,
+			"name": "设置代理专区",
+			"icon": "",
+			"url": "./pages/goods/list3.html"
+		},{
+			"id": 13,
+			"name": "团购专区列表",
+			"icon": "",
+			"url": "./pages/goods/list4.html"
+		},{
+			"id": 14,
+			"name": "会员专区列表",
+			"icon": "",
+			"url": "./pages/goods/list5.html"
+		},
+		{
+			"id": 15,
+			"name": "优惠卷列表",
+			"icon": "",
+			"url": "./pages/goods/list6.html"
+		},
+		{
+			"id": 16,
+			"name": "设置运费模板",
+			"icon": "",
+			"url": "./pages/goods/list9.html"
+		}
+		]
+	},{
+		"id": 17,
+		"name": "代理管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[{
+			"id": 18,
+			"name": "订单列表",
+			"icon": "",
+			"url": "./pages/order/list.html"
+		},
+		{
+			"id": 19,
+			"name": "会员说明",
+			"icon": "",
+			"url": "./pages/order/list1.html"
+		},{
+			"id": 20,
+			"name": "代理说明",
+			"icon": "",
+			"url": "./pages/order/list2.html"
+		}]
+	}, {
+		"id": 21,
+		"name": "直播管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[{
+			"id": 22,
+			"name": "用户列表",
+			"icon": "",
+			"url": "./pages/user/list.html"
+		},{
+			"id": 23,
+			"name": "签到积分设置",
+			"icon": "",
+			"url": "./pages/user/list1.html"
+		},{
+			"id": 24,
+			"name": "分享积分设置",
+			"icon": "",
+			"url": "./pages/user/list2.html"
+		}]
+	},{
+		"id": 25,
+		"name": "视频管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+			"id": 26,
+			"name": "新品发布通知",
+			"icon": "",
+			"url": "./pages/notice/list.html"
+		},{
+			"id": 27,
+			"name": "系统通知",
+			"icon": "",
+			"url": "./pages/notice/list1.html"
+		}]
+	},{
+		"id": 28,
+		"name": "财务管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+				"id": 29,
+				"name": "基本信息",
+				"icon": "",
+				"url": "./pages/admin/info.html"
+			},{
+			"id": 30,
+			"name": "修改密码",
+			"icon": "",
+			"url": "./pages/admin/password.html"
+		}]
+	},
+	,
+	{
+	
+		"name": "财务管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+				
+				"name": "基本信息",
+				"icon": "",
+				"url": "./pages/admin/info.html"
+			},{
+			
+			"name": "修改密码",
+			"icon": "",
+			"url": "./pages/admin/password.html"
+		}]
+	},
+	{
+		"name": "家族管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+			
+				"name": "基本信息",
+				"icon": "",
+				"url": "./pages/admin/info.html"
+			},{
+		
+			"name": "修改密码",
+			"icon": "",
+			"url": "./pages/admin/password.html"
+		}]
+	},
+	{
+		
+		"name": "商城管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+			
+				"name": "基本信息",
+				"icon": "",
+				"url": "./pages/admin/info.html"
+			},{
+			
+			"name": "修改密码",
+			"icon": "",
+			"url": "./pages/admin/password.html"
+		}]
+	},
+	{
+		
+		"name": "红包管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+			
+				"name": "基本信息",
+				"icon": "",
+				"url": "./pages/admin/info.html"
+			},{
+			
+			"name": "修改密码",
+			"icon": "",
+			"url": "./pages/admin/password.html"
+		}]
+	},
+	{
+		
+		"name": "守护管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+			
+				"name": "基本信息",
+				"icon": "",
+				"url": "./pages/admin/info.html"
+			},{
+			
+			"name": "修改密码",
+			"icon": "",
+			"url": "./pages/admin/password.html"
+		}]
+	},
+	{
+		
+		"name": "等级管理",
+		"icon": "",
+		"url": "",
+		"children":
+		[
+			{
+			
+				"name": "基本信息",
+				"icon": "",
+				"url": "./pages/admin/info.html"
+			},{
+			
+			"name": "修改密码",
+			"icon": "",
+			"url": "./pages/admin/password.html"
+		}]
+	}
+	]
+}

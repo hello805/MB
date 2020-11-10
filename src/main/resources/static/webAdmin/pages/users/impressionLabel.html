@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+    <!--layui.table图片显示不全，需重新定义CSS  -->
+    <style type="text/css">
+        .layui-table-cell{
+            height:auto!important;
+            white-space:normal;
+        }
+        .layui-form-pane{
+            width: 500px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="layui-layout layui-layout-admin" style="margin: 20px">
+
+    <table class="layui-table-cell" id="impressionLabel" lay-filter="impressionLabel"></table>
+
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="addLabel">添加标签</button>
+        </div>
+    </script>
+
+    <script type="text/html" id="operate">
+        <a style="color: #1AA094;cursor:pointer" lay-event="edit" class="bar">编辑</a>
+        <a> | </a>
+        <a style="color: #1AA094;cursor:pointer" lay-event="del" class="bar">删除</a>
+    </script>
+
+
+</div>
+
+
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/layui/layui.js}"></script>
+<script >
+    layui.use(['table', 'layer','element','laydate'], function () {
+        var table = layui.table;
+        var layer = layui.layer;
+        var element = layui.element;
+        var laydate = layui.laydate;
+
+        $.ajax({
+            type: "GET", //提交方式
+            url: "/impressionLabel/list", //baseurl + "/com/users", //路径
+            dataType: 'json',
+            data: {}, //数据，这里使用的是Json格式进行传输
+            success: function(data) { //返回数据根据结果进行相应的处理
+                table.render({
+                    elem: '#impressionLabel',
+                    data: data.data,
+                    page: true, //开启分页
+                    totalRow: false, //开启合计行
+                    loading: false,
+                    toolbar: '#toolbarDemo',
+                    limit: 10,
+                    limits: [15, 20, 30],
+                    cols: [
+                        [{fixed:'left', type: 'checkbox', width: 30}
+                            , {field: 'orderno', title: '序号', width: 220, align: 'center'}
+                            , {field: 'id', title: 'ID', width: 220, align: 'center'}
+                            , {field: 'name', title: '标签名称',  align: 'center'}
+                            , {field: 'colour', title: '颜色',  align: 'center',templet: function (d) {
+                                but =  "<div style= '" + "width: 64px;height: 32px;background: #"+ d.colour +"'></div>"
+                                return but;
+                            }}
+                            , {fixed: 'right', title: '操作', align: 'center', toolbar: '#operate'}
+                        ]
+                    ]
+                });
+
+                table.on('toolbar(impressionLabel)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                    var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                    if (layEvent === 'addLabel') {
+                        layer.open({
+                            type: 2,
+                            title: '添加',
+                            maxmin: true,
+                            shadeClose: true, //点击遮罩关闭层
+                            area: ['1000px', '650px'],
+                            content: 'labelAdd'
+                        });
+                    }
+                });
+
+                //点击查看详情 跳出
+                table.on('tool(impressionLabel)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+                    var token = localStorage.getItem("token");
+                    var data = obj.data; //获得当前行数据
+                    var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                    var ids = obj.data.id;
+                    if (layEvent === 'edit') {
+                        localStorage.clear();
+                        localStorage.setItem("id", ids);
+                        layer.open({
+                            type: 2,
+                            title: '编辑',
+                            maxmin: true,
+                            shadeClose: true, //点击遮罩关闭层
+                            area: ['1000px', '650px'],
+                            content: 'labelEdit'
+                        });
+                    }else if (layEvent === 'del') {
+                        layer.confirm('确认要删除吗？', function(index) {
+                            $.ajax({
+                                type: "post",
+                                url: "/user/del",
+                                data: {
+                                    id: ids
+                                },
+                                success: function(data) {
+                                    if(data.meta.code == 200) {
+                                        layer.alert('更新成功', function() {
+                                            location.reload();
+                                        });
+                                    }
+                                    location.reload();
+                                }
+                            });
+                        });
+                    }
+
+                });
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

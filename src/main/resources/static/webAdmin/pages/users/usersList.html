@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+    <!--layui.table图片显示不全，需重新定义CSS  -->
+    <style type="text/css">
+        .layui-table-cell{
+            /*height:auto!important;*/
+            height: 36px;
+            line-height: 36px;
+            /*white-space:normal;*/
+        }
+        .layui-form-pane{
+            width: 500px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="layui-layout layui-layout-admin" style="margin: 20px">
+
+    <div class="layui-collapse">
+        <div class="layui-colla-item">
+            <h2 class="layui-colla-title">条件搜索</h2>
+            <div class="layui-colla-content">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">僵尸粉开关</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="iszombie" value="" title="全部" checked>
+                            <input type="radio" name="iszombie" value="1" title="开启">
+                            <input type="radio" name="iszombie" value="0" title="关闭">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">僵尸粉</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="iszombiep" value="" title="全部" checked>
+                            <input type="radio" name="iszombiep" value="1" title="是">
+                            <input type="radio" name="iszombiep" value="0" title="否">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">禁用</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="user_status" value="" title="全部" checked>
+                            <input type="radio" name="user_status" value="1" title="是">
+                            <input type="radio" name="user_status" value="0" title="否">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">热门</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="ishot" value="" title="全部" checked>
+                            <input type="radio" name="ishot" value="1" title="是">
+                            <input type="radio" name="ishot" value="0" title="否">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">超管</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="issuper" value="" title="全部" checked>
+                            <input type="radio" name="issuper" value="1" title="是">
+                            <input type="radio" name="issuper" value="0" title="否">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">设备来源</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="source" value="pc" title="PC">
+                            <input type="radio" name="source" value="android" title="安卓">
+                            <input type="radio" name="source" value="ios" title="苹果">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">注册时间</label>
+                            <div class="layui-input-inline" style="width: 170px;">
+                                <input type="text"  id="time1" name="times" placeholder="" autocomplete="off" class="layui-input">
+                            </div>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 170px;">
+                                <input type="text"  id="time2" name="times" placeholder="" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">关键字</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-inline" >
+                            <button  class="layui-btn submit" style="width: 500px" lay-submit lay-filter="submit">搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <table class="layui-table-cell" id="users" lay-filter="users"></table>
+
+    <script type="text/html" id="toolbarDemo">
+        <div class="layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="addUsers">添加用户</button>
+        </div>
+        <div class="layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="batchSetZombie">批量设置为僵尸粉</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="batchCancelZombie">批量取消僵尸粉</button>
+        </div>
+        <div class="layui-btn-group">
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="batchOnZombie">一键开启僵尸粉</button>
+            <button type="button" class="layui-btn layui-btn-sm" lay-event="batchOffZombie">一键关闭僵尸粉</button>
+        </div>
+    </script>
+
+    <script type="text/html" id="operate">
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit1" class="bar">禁用</a>
+            <a> | </a>
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit2" class="bar">设置超管</a>
+            <a> | </a>
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit3" class="bar">取消热门</a>
+            <a> | </a>
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit4" class="bar">推荐</a>
+            <a> | </a>
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit5" class="bar">开启僵尸粉</a>
+            <a> | </a>
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit6" class="bar">设置为僵尸粉</a>
+            <a> | </a>
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit7" class="bar">编辑</a>
+            <a> | </a>
+            <a style="color: #1AA094;cursor:pointer" lay-event="edit8" class="bar">删除</a>
+    </script>
+
+</div>
+
+
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/manager/users/usersList.js}"></script>
+</body>
+</html>

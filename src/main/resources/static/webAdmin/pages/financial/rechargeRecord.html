@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!-- <link rel="stylesheet" th:href="@{/layui/css/layui.css}"> -->
+		<link rel="stylesheet" href="../../lib/layui/css/layui.css">
+		<!--layui.table图片显示不全，需重新定义CSS  -->
+		<style type="text/css">
+			.layui-table-cell {
+				/*height:auto!important;*/
+				height: 36px;
+				line-height: 36px;
+				/*white-space:normal;*/
+			}
+
+			.layui-form-pane {
+				width: 500px;
+			}
+		</style>
+		<!-- 代理商 -->
+	</head>
+	<body>
+		<div class="layui-form">
+			<div class="layui-inline">
+				<label class="layui-form-label">代理商：</label>
+				<div class="layui-input-block">
+					<select name="status">
+						<option value="">全部</option>
+						<option value="0">处理中</option>
+						<option value="1">已处理</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">推广员：</label>
+				<div class="layui-input-block">
+					<select name="status">
+						<option value="">全部</option>
+						<option value="0">处理中</option>
+						<option value="1">已处理</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">订单状态：</label>
+				<div class="layui-input-block">
+					<select name="status">
+						<option value="">全部</option>
+						<option value="0">处理中</option>
+						<option value="1">已处理</option>
+					</select>
+				</div>
+			</div>
+
+
+
+			<div class="layui-inline">
+				<label class="layui-form-label">提交时间</label>
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input" id="test6" placeholder=" - ">
+				</div>
+			</div>
+			<div class="layui-inline">
+				<label class="layui-form-label">关键字</label>
+				<div class="layui-input-inline">
+					<input class="layui-input" name="id" id="demoReload" autocomplete="off">
+				</div>
+			</div>
+
+			<button class="layui-btn" data-type="reload" lay-filter="submit">搜索</button>
+			<button class="layui-btn" data-type="reload" lay-filter="submit">导出</button>
+		</div>
+
+		<table class="layui-table-cell" id="recharge" lay-filter="recharge"></table>
+
+	<!-- 	<script type="text/html" id="toolbarDemo">
+			<div class="layui-btn-group">
+			 <button type="button" class="layui-btn layui-btn-sm" lay-event="sort">排序</button>
+			<button type="button" class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+		       
+		    </div>
+		</script> -->
+
+		<script type="text/html" id="operate">
+			<a style="color: #1AA094;cursor:pointer" lay-event="edit1" class="bar">编辑</a>
+		        <a> | </a>
+		        <a style="color: #1AA094;cursor:pointer" lay-event="edit2" class="bar">删除</a>
+		</script>
+
+		<!-- <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script> -->
+		<!-- <script th:src="@{/layui/layui.js}"></script> -->
+		<!-- <script type="text/javascript" th:src="@{/manager/users/usersList.js}"></script> -->
+		<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+		<script src="../../lib/layui/layui.js"></script>
+		<script type="text/javascript" src="../../manager/financial/rechargeRecord.js"></script>
+
+	</body>
+</html>
